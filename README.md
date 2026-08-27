@@ -51,7 +51,34 @@ SmoothHiddenDrawer(
 )
 ```
 
-## How the RTL Animation works
+## Keeping the menu in step
+By default the `menu` fills the screen, so its own content decides where it
+sits. If you place that content with `AlignmentDirectional` it will *snap* to
+the other side the moment the language changes, because a directional
+alignment has already resolved before the first frame of the transition.
+
+Wrap it in `SmoothDrawerMenuPanel` instead and it glides across with the main
+screen:
+
+```dart
+SmoothHiddenDrawer(
+  menu: ColoredBox(
+    color: Colors.blueGrey.shade900,
+    child: SmoothDrawerMenuPanel(
+      width: 300,
+      child: MyMenuItems(),
+    ),
+  ),
+  mainScreen: MyScaffold(),
+)
+```
+
+Keep the background full-bleed, as above, so the area the panel does not cover
+is still painted. For anything more custom, read `SmoothDrawerScope.of(context)`
+directly — it carries `isRtl`, `isOpen`, `animationDuration`, `curve` and a
+ready-made absolute `menuAlignment`.
+
+How the RTL Animation works
 When the drawer is open in an LTR language, the main screen slides to the right (`+slidePercent`). If you change the app's language to an RTL language, `flutter_smooth_drawer` detects the change and beautifully animates the main screen's translation to the left (`-slidePercent`), gliding over your menu layer underneath!
 
 Enjoy building stunning, accessible apps!

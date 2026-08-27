@@ -1,6 +1,6 @@
 name: flutter_smooth_drawer
 description: "A 3D perspective hidden drawer for Flutter with smooth cross-screen animations during RTL/LTR direction changes."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/handoud/flutter_smooth_drawer
 repository: https://github.com/handoud/flutter_smooth_drawer
 issue_tracker: https://github.com/handoud/flutter_smooth_drawer/issues
