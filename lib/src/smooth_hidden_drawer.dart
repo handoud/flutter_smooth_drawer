@@ -21,14 +21,14 @@ class SmoothHiddenDrawer extends StatefulWidget {
   final bool? isRtl;
 
   const SmoothHiddenDrawer({
-    Key? key,
+    super.key,
     required this.menu,
     required this.mainScreen,
     this.slidePercent = 0.7,
     this.scalePercent = 0.8,
     this.animationDuration = const Duration(milliseconds: 600),
     this.isRtl,
-  }) : super(key: key);
+  });
 
   @override
   SmoothHiddenDrawerState createState() => SmoothHiddenDrawerState();
@@ -94,7 +94,7 @@ class SmoothHiddenDrawerState extends State<SmoothHiddenDrawer> with SingleTicke
                   boxShadow: isOpen
                       ? [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
+                            color: Colors.black.withValues(alpha: 0.3),
                             blurRadius: 20,
                             offset: Offset(rtl ? 10 : -10, 0),
                           )

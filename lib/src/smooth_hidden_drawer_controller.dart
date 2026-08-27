@@ -35,10 +35,10 @@ class SmoothHiddenDrawerController extends ChangeNotifier {
 
 class SmoothHiddenDrawerProvider extends InheritedNotifier<SmoothHiddenDrawerController> {
   const SmoothHiddenDrawerProvider({
-    Key? key,
+    super.key,
     required SmoothHiddenDrawerController controller,
-    required Widget child,
-  }) : super(key: key, notifier: controller, child: child);
+    required super.child,
+  }) : super(notifier: controller);
 
   SmoothHiddenDrawerController get controller => notifier!;
 }
